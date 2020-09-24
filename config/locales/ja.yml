@@ -44,7 +44,7 @@ ja:
     new_book: 新しい本を追加する
     back: トップへ戻る
   activerecord:
-    models: 
+    models:
       book: Book
     attributes:
       book:
