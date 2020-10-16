@@ -58,3 +58,6 @@ gem 'awesome_print'
 
 # Use carrierwave
 gem 'carrierwave'
+
+# Use kaminari
+gem 'kaminari'
