@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%=t 'index_page_title' %></h1>
+<%= link_to t('links.new_book'), new_book_path %>
 
 <table>
   <thead>
@@ -30,6 +31,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to t('links.new_book'), new_book_path %>
+<%= paginate @books %>
