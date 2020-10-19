@@ -61,3 +61,6 @@ gem 'carrierwave'
 
 # Use kaminari
 gem 'kaminari'
+
+# Use devise
+gem 'devise'
