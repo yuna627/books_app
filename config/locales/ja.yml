@@ -37,12 +37,30 @@ ja:
   create_message: 保存しました
   update_message: 更新しました
   delete_message: 削除しました
+  logged_in_as: としてログインしています
+
+  edit_user:
+    leave_blank_password: (変更しない場合は何も入力しないでください)
+    need_password: (情報の変更には現在のパスワードが必要です)
+    characters_minimum: 文字以上
+    unhappy: アカウントは不要ですか？
+    cancel_my_account: アカウント削除
+    update: 更新
+    confirm_delete: 本当に削除しますか?
+    cancel_accout_botton: アカウントを削除する
+  forgot_password:
+    title: パスワードを忘れた方は
   links:
     show: 詳細
     edit: 編集
     destroy: 削除
     new_book: 新しい本を追加する
-    back: トップへ戻る
+    back: もどる
+    edit_profile: プロフィール編集
+    login: ログイン
+    logout: ログアウト
+    sign_up: 新規登録
+  
   activerecord:
     models:
       book: Book
@@ -52,3 +70,11 @@ ja:
         memo: メモ
         author: 著者
         picture: 画像
+      user:
+        username: ユーザーネーム
+        name: 名前
+        email: メールアドレス
+        password: 新しいパスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        current_password: 現在のパスワード
