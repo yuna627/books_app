@@ -48,6 +48,7 @@ ja:
     update: 更新
     confirm_delete: 本当に削除しますか?
     cancel_accout_botton: アカウントを削除する
+    edit: 修正する
   forgot_password:
     title: パスワードを忘れた方は
   links:
@@ -64,6 +65,7 @@ ja:
   activerecord:
     models:
       book: Book
+      user: ユーザー
     attributes:
       book:
         title: タイトル
