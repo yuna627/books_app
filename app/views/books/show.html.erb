@@ -20,5 +20,10 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
+<p>
+  <strong>posted by</strong>
+  <%= @book.user.name %>
+</p>
+
 <%= link_to t('links.edit'), edit_book_path(@book) %> |
 <%= link_to t('links.back'), books_path %>

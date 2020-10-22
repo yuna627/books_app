@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
   validates :email, length: { maximum: 50 }
+
+  has_many :books
 end
