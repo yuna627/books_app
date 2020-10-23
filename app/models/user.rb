@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
+  validates :address, length: { maximum: 50 }
+  validates :introduce, length: { maximum: 100 }
+  validates :zipcode, format: { with: /\A\d{3}[-]\d{4}\z/ }
 
   has_many :books
 end
