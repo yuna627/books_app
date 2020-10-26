@@ -20,7 +20,7 @@
 
 <p>
   <strong>posted by</strong>
-  <%= @book.user.name %>
+  <%= link_to @book.user.name, user_path(@book.user) %>
 </p>
 
 <%= link_to t('links.edit'), edit_book_path(@book) %> |
