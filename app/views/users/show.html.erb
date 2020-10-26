@@ -1,9 +1,21 @@
-<div class="row">
-  <aside class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @user.name %></h3>
-      </div>
-    </div>
-  </aside>
-</div>
+<p>
+  <strong><th><%=User.human_attribute_name(:name) %>:</th></strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:zipcode) %>:</th></strong>
+  <%= @user.zipcode %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:address) %>:</th></strong>
+  <%= @user.address %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:introduce) %>:</th></strong>
+  <%= @user.introduce %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:email) %>:</th></strong>
+  <%= @user.email %>
+</p>
+ <%= link_to t('links.back'), books_path %>

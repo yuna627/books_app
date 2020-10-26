@@ -1,30 +1,32 @@
-<h2><%= resource_name.to_s.humanize %>情報を<%=t 'edit_user.edit' %></h2>
+<h2><%= resource_name.to_s.humanize %><%=t 'edit_user.edit' %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
-    <%= f.label :zipcode %><br />
+    <%= f.label :zipcode %>
+    <%=t 'edit_user.please_type_using_half_width_caharacters' %><br />
+
     <%= f.text_field :zipcode, autofocus: true, autocomplete: "zipcode" %>
   </div>
 
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address %>
     <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
   </div>
 
     <div class="field">
-    <%= f.label :introduce %><br />
+    <%= f.label :introduce %>
     <%= f.text_field :introduce, autofocus: true, autocomplete: "introduce" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -42,7 +44,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -59,4 +61,4 @@
 <h3><%=t 'edit_user.cancel_my_account' %></h3>
 
 <p><%=t 'edit_user.unhappy' %> <%= button_to t('edit_user.cancel_accout_botton'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-<%= link_to t('links.back'), :back %>
+<%= link_to t('links.back'), books_path %>
