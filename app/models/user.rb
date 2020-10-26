@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :address, length: { maximum: 50 }
   validates :introduce, length: { maximum: 100 }
-  validates :zipcode, format: { with: /\A\d{3}[-]\d{4}\z/ }
+  validates :zipcode, format: { with: /\A\d{3}[-]\d{4}\z/ }, allow_blank: true
 
   has_many :books
 end
