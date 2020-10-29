@@ -8,5 +8,5 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
   validates :zipcode, format: { with: /\A\d{3}[-]\d{4}\z/ }, allow_blank: true
 
-  has_many :books
+  has_many :books, dependent: :destroy
 end
