@@ -1,4 +1,4 @@
-<h2><%= resource_name.to_s.humanize %><%=t 'edit_user.edit' %></h2>
+<h2><%= resource_name.to_s.humanize %><%=t 'devise.registrations.edit.edit_prodile' %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :zipcode %>
-    <%=t 'edit_user.please_type_using_half_width_caharacters' %><br />
+    <%=t 'devise.registrations.edit.please_type_using_half_width_caharacters' %><br />
 
     <%= f.text_field :zipcode, autofocus: true, autocomplete: "zipcode" %>
   </div>
@@ -31,15 +31,15 @@
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div><%=t 'devise.registrations.edit.currently_waiting_confirmation_for_email' %> <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %><%=t 'edit_user.leave_blank_password' %><br />
+    <%= f.label :password %><%=t 'devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %><%=t 'edit_user.characters_minimum' %></em>
+      <em><%= @minimum_password_length %><%=t 'devise.registrations.edit.characters_minimum' %></em>
     <% end %>
   </div>
 
@@ -49,16 +49,16 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %><%=t 'edit_user.need_password' %><br />
+    <%= f.label :current_password %><%=t 'devise.registrations.edit.need_password' %><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit t('edit_user.update') %>
+    <%= f.submit t('devise.registrations.edit.update') %>
   </div>
 <% end %>
 
-<h3><%=t 'edit_user.cancel_my_account' %></h3>
+<h3><%=t 'devise.registrations.edit.cancel_my_account' %></h3>
 
-<p><%=t 'edit_user.unhappy' %> <%= button_to t('edit_user.cancel_accout_botton'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%=t 'devise.registrations.edit.unhappy' %> <%= button_to t('devise.registrations.edit..cancel_accout_botton'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 <%= link_to t('links.back'), books_path %>
