@@ -64,3 +64,6 @@ gem 'kaminari'
 
 # Use devise
 gem 'devise'
+
+# Use devise-i18n
+gem 'devise-i18n'
