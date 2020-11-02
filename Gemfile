@@ -67,3 +67,6 @@ gem 'devise'
 
 # Use devise-i18n
 gem 'devise-i18n'
+
+# Use oatuth2
+gem 'oauth2'
