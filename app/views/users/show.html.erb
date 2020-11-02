@@ -1,0 +1,21 @@
+<p>
+  <strong><th><%=User.human_attribute_name(:name) %>:</th></strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:zipcode) %>:</th></strong>
+  <%= @user.zipcode %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:address) %>:</th></strong>
+  <%= @user.address %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:introduction) %>:</th></strong>
+  <%= @user.introduction %>
+</p>
+<p>
+  <strong><th><%=User.human_attribute_name(:email) %>:</th></strong>
+  <%= @user.email %>
+</p>
+ <%= link_to t('links.back'), books_path %>
