@@ -70,3 +70,6 @@ gem 'devise-i18n'
 
 # Use oatuth2
 gem 'oauth2'
+
+# Use OmniAuth GitHub
+gem 'omniauth-github'
