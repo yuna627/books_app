@@ -73,3 +73,6 @@ gem 'oauth2'
 
 # Use OmniAuth GitHub
 gem 'omniauth-github'
+
+# Use oatuth2
+gem 'omniauth'

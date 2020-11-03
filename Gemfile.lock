@@ -274,6 +274,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.2)
   oauth2
+  omniauth
   omniauth-github
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
