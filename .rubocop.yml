@@ -1,0 +1,11 @@
+inherit_gem:
+  rubocop-fjord:
+    - "config/rubocop.yml"
+    - "config/rails.yml"
+inherit_mode:
+  merge:
+    - Exclude
+AllCops:
+  Exclude:
+    - 'bin/{rails,rake,bundle}'
+
