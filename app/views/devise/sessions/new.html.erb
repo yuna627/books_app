@@ -21,6 +21,12 @@
   <div class="actions">
     <%= f.submit t('links.login') %>
   </div>
+
+  <div class="actions">
+  <%# user_github_omniauth_authorize_path %>
+    <%= link_to "Sign in with GitHub", user_github_omniauth_authorize_path %>
+  </div>
+  	
 <% end %>
 
 <%= link_to t('links.back'), books_path %>
