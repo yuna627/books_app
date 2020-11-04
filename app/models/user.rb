@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :address, length: { maximum: 50 }
   validates :introduction, length: { maximum: 100 }
-  validates :zipcode, format: { with: /\A\d{3}[-]\d{4}\z/ }, allow_blank: true
+  validates :zipcode, format: { with: /\A\d{3}-\d{4}\z/ }, allow_blank: true
 
   def self.create_unique_string
     SecureRandom.uuid
