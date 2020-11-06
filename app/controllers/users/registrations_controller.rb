@@ -5,4 +5,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     hash[:uid] = User.create_unique_string
     super
   end
+
+  protected
+
+  def update_resource(resource, params)
+    if resource.provider == 'github'
+      # Allows user to update registration information without password.
+      resource.update_without_password(params.except('current_password'))
+    else
+      # Require current password if user who isn't signin from github.
+      super
+    end
+  end
 end
