@@ -6,6 +6,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def update
+    super
+    resource.avatar.attach(account_update_params[:avatar]) if account_update_params[:avatar].present?
+  end
+
   protected
 
   def update_resource(resource, params)
