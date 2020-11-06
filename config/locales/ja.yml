@@ -72,6 +72,7 @@ ja:
         zipcode: 郵便番号
         address: 住所
         introduction: 自己紹介
+        avatar: アイコン画像
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
