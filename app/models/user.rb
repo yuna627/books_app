@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_many :books, dependent: :destroy
+  has_one_attached :avatar
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, and :omniauthable
