@@ -1,5 +1,4 @@
 <h2><%=t 'links.login' %></h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %>
@@ -25,7 +24,5 @@
   <div class="actions">
     <%= link_to t('links.sign_in_with_github'), user_github_omniauth_authorize_path %>
   </div>
-  	
 <% end %>
-
 <%= link_to t('links.back'), books_path %>
