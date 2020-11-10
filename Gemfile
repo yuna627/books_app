@@ -55,31 +55,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-# Use awesome_print
 gem 'awesome_print'
-
-# Use carrierwave
 gem 'carrierwave'
-
-# Use kaminari
-gem 'kaminari'
-
-# Use devise
 gem 'devise'
-
-# Use devise-i18n
 gem 'devise-i18n'
-
-# Use oatuth2
+gem 'kaminari'
 gem 'oauth2'
-
-# Use OmniAuth GitHub
+gem 'omniauth'
 gem 'omniauth-github'
 
-# Use oatuth2
-gem 'omniauth'
-
-# use rubocop-fjord
 group :development do
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails'

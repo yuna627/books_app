@@ -4,8 +4,6 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_one_attached :avatar
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[github]
@@ -13,6 +11,7 @@ class User < ApplicationRecord
   validates :address, length: { maximum: 50 }
   validates :introduction, length: { maximum: 100 }
   validates :zipcode, format: { with: /\A\d{3}-\d{4}\z/ }, allow_blank: true
+  validates :uid, uniqueness: { scope: :provider }
 
   def self.create_unique_string
     SecureRandom.uuid
