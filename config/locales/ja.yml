@@ -51,6 +51,8 @@ ja:
     logout: ログアウト
     sign_up: 新規登録
     mypage: 自分のプロフィールを見る
+    sign_in_with_github: GitHubアカウントでログインする
+    sign_up_with_github: GitHubアカウントで登録する
   activerecord:
     models:
       book: 本
