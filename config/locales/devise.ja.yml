@@ -64,7 +64,7 @@ ja:
       updated_not_active: パスワードが正しく変更されました。
     registrations:
       user:
-        updated: パスワードが正しく変更されました。
+        updated: プロフィール情報を更新しました。
       destroyed: アカウントを削除しました。またのご利用をお待ちしております。
       edit:
         leave_blank_password: (変更しない場合は何も入力しないでください)

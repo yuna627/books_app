@@ -35,6 +35,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %><%=t 'devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
