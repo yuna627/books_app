@@ -40,6 +40,12 @@ ja:
   delete_message: 削除しました
   logged_in_as: としてログインしています
   posted_by: 投稿者：
+  show:
+    follow: フォロー
+    follower: フォロワー
+    unfollow: アンフォロー
+  follow:
+    profile: プロフィールを見る
   links:
     show: 詳細
     edit: 編集

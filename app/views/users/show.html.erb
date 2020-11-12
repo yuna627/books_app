@@ -1,11 +1,11 @@
-<p><%= link_to "Follow: #{@user.follower.count}", followings_user_path(@user.id) %></p>
-<p><%= link_to "Follower: #{@user.followed.count}", followers_user_path(@user.id) %></p>
+<p><%= link_to t('show.follow')+": #{@user.follower.count}", followings_user_path(@user.id) %></p>
+<p><%= link_to t('show.follower')+": #{@user.followed.count}", followers_user_path(@user.id) %></p>
 
 <% unless @user == current_user %>
   <% if current_user.following?(@user) %>
-    <%= link_to 'Unfollow', unfollow_path(@user.id), method: :POST %>
+    <%= link_to t('show.unfollow'), unfollow_path(@user.id), method: :POST %>
   <% else %>
-    <%= link_to 'Follow', follow_path(@user.id), method: :POST %>
+    <%= link_to t('show.follow'), follow_path(@user.id), method: :POST %>
   <% end %>
 <% end %>
 
