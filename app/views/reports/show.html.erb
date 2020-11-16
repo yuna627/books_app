@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @report.memo %>
+</p>
+
+<p>
+  <strong><%= t("posted_by") %></strong>
+  <%= link_to @report.user.name, user_path(@report.user) %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>
