@@ -1,5 +1,5 @@
-<h1>Reports</h1>
-
+<h1><%=t 'report.index_title' %></h1>
+<%= link_to t('report.new'), new_report_path %>
 <table>
   <thead>
     <tr>
@@ -14,13 +14,12 @@
       <tr>
         <td><%= report.title %></td>
         <td><%= report.memo %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('links.show'), report %></td>
+        <td><%= link_to t('links.edit'), edit_report_path(report) %></td>
+        <td><%= link_to t('links.destroy'), report, method: :delete, data: { confirm: t('delite_confirmation') } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New Report', new_report_path %>
 <%= paginate @reports %>

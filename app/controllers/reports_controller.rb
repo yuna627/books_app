@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
     if @report.save
-      redirect_to @report, notice: 'Report was successfully created.'
+      redirect_to @report, notice: t('create_message')
     else
       render :new
     end

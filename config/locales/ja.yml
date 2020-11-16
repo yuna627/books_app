@@ -1,39 +1,15 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 ja:
   index_page_title: 書籍一覧
   new_book_title: 新しい本の追加
   add_book: 追加
+  add_report: 追加
   edit_book_title: 本の情報を編集
+  report:
+    index_title: 日報一覧
+    title: 日報を編集する
+    add: 追加
+    error: 保存できませんでした
+    new: 日報を書く
   delite_confirmation: 本当に削除しますか？
   create_message: 保存しました
   update_message: 更新しました
@@ -69,6 +45,9 @@ ja:
         memo: メモ
         author: 著者
         picture: 画像
+      report:
+        title: タイトル
+        memo: メモ
       user:
         username: ユーザーネーム
         name: 名前
@@ -105,6 +84,10 @@ ja:
           attributes:
             title:
              blank: 本のタイトルが入力されていません
+        report:
+          attributes:
+            title:
+              blank: が入力されていません
         user:
           attributes:
             name:

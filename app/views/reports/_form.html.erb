@@ -1,7 +1,7 @@
 <%= form_with(model: report, local: true) do |form| %>
   <% if report.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+      <h2><%= t("errors.messages.not_saved", count: report.errors.count, resource: report.class.model_name.human.downcase) %> </h2>
 
       <ul>
         <% report.errors.full_messages.each do |message| %>
@@ -22,6 +22,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('report.add') %>
   </div>
 <% end %>
