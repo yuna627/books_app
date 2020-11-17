@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   root to: 'application#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
