@@ -9,7 +9,10 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1
-  def show; end
+  def show
+    @comments = @book.comments.includes(:user).all
+    @comment  = @book.comments.build(user_id: current_user.id) if current_user
+  end
 
   # GET /books/new
   def new
