@@ -44,9 +44,13 @@ ActiveRecord::Schema.define(version: 2020_11_17_064248) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "body"
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.string "body", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "relationships", force: :cascade do |t|
