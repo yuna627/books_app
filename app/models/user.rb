@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :avatar
   has_many :follower, class_name: 'Relationship',
                       foreign_key: 'follower_id',
