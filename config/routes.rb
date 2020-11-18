@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   root to: 'application#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -15,8 +14,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :reports do
+    resources :comments, only: %i[show destroy create]
+  end
+
   resources :users, only: :show
   resources :books
-  resources :reports
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
