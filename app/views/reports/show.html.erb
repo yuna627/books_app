@@ -13,5 +13,27 @@
   <%= link_to @report.user.name, user_path(@report.user) %>
 </p>
 
+<p class="mt-5">コメント一覧</p>
+<% unless @comments.blank? %>
+  <% @comments.each do |comment| %>
+      <div>
+        <strong><%= comment.user.name %></strong>
+        <br />
+        <p><%= comment.body %></p>
+        <% if user_signed_in? && comment.user == current_user %>
+          <p><%= link_to t('links.destroy'), [@report, comment], method: :delete, data: { confirm: t('delite_confirmation') } %></p>
+        <% end %>
+      </div>
+  <% end %>
+<% end %>
+<% if user_signed_in? %>
+  <%= form_for [@report, @comment] do |f| %>
+    <%= f.text_field :body %>
+    <br>
+    <%= f.submit 'コメントする' %>
+  <% end %>
+<% end %>
+
 <%= link_to t('links.edit'), edit_report_path(@report) %> |
 <%= link_to t('links.back'), reports_url %>
+
