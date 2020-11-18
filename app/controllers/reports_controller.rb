@@ -9,7 +9,10 @@ class ReportsController < ApplicationController
 
   # GET /reports/1
   # GET /reports/1.json
-  def show; end
+  def show
+    @comments = @report.comments.includes(:user).all
+    @comment  = @report.comments.build(user_id: current_user.id) if current_user
+  end
 
   # GET /reports/new
   def new
