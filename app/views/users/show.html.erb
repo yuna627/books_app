@@ -3,9 +3,12 @@
 
 <% unless @user == current_user %>
   <% if current_user.following?(@user) %>
-    <%= link_to t('show.unfollow'), unfollow_path(@user.id), method: :POST %>
+    <%= button_to t('show.unfollow'), relationship_path(@relationship), method: :delete %>
   <% else %>
-    <%= link_to t('show.follow'), follow_path(@user.id), method: :POST %>
+     <%= form_for(@user.follower.build) do |f| %>
+      <%= hidden_field_tag :follow_id, @user.id %>
+      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
+    <% end %>
   <% end %>
 <% end %>
 
