@@ -1,5 +1,5 @@
 <p><%= link_to t('show.follow')+": #{@user.followers.count}", followings_user_path(@user.id) %></p>
-<p><%= link_to t('show.follower')+": #{@user.followeds.count}", followers_user_path(@user.id) %></p>
+<p><%= link_to t('show.follower')+": #{@user.followings.count}", followers_user_path(@user.id) %></p>
 
 <% unless @user == current_user %>
   <% if current_user.following?(@user) %>

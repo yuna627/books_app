@@ -7,12 +7,12 @@ class User < ApplicationRecord
                        foreign_key: 'follower_id',
                        dependent: :destroy,
                        inverse_of: :follower
-  has_many :followeds, class_name: 'Relationship',
+  has_many :followings, class_name: 'Relationship',
                        foreign_key: 'followed_id',
                        dependent: :destroy,
                        inverse_of: :followed
   has_many :following_users, through: :followers, source: :followed
-  has_many :follower_users, through: :followeds, source: :follower
+  has_many :follower_users, through: :followings, source: :follower
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

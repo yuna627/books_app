@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
-    @relationship = @user.followeds.find_by(follower_id: current_user.id)
+    @relationship = @user.followings.find_by(follower_id: current_user.id)
   end
 
   def followings
