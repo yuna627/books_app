@@ -10,8 +10,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    relationship = Relationship.find_by_id(params[:id])
-    relationship&.destroy
+    Relationship.find(params[:id]).destroy
     redirect_to root_path
   end
 end
