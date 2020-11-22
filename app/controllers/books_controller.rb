@@ -20,7 +20,9 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1/edit
-  def edit; end
+  def edit
+    redirect_to @book, notice: t('cant_edit') unless @book.user == current_user
+  end
 
   # POST /books
   def create
@@ -35,6 +37,11 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1
   def update
+    unless @book.user == current_user
+      redirect_to @book, notice: t('cant_edit')
+      return
+    end
+
     if @book.update(book_params)
       redirect_to @book, notice: t('update_message')
     else
@@ -44,6 +51,11 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
+    unless @book.user == current_user
+      redirect_to @book, notice: t('cant_destroy')
+      return
+    end
+
     @book.destroy
     redirect_to books_url, notice: t('delete_message')
   end

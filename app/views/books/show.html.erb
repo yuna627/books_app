@@ -23,7 +23,9 @@
   <%= link_to @book.user.name, user_path(@book.user) %>
 </p>
 
-<%= link_to t('links.edit'), edit_book_path(@book) %> |
+<% if @book.user == current_user %>
+  <%= link_to t('links.edit'), edit_book_path(@book) %> |
+<% end %>
 <%= link_to t('links.back'), books_url %>
 
 <p class="mt-5">コメント一覧</p>
