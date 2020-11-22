@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to [@commentable, @comments], notice: 'Comment was successfully created.'
+      redirect_to [@commentable, @comments], notice: t('comment_was_successfully_created')
     else
-      render :new
+      redirect_to [@commentable, @comments], notice: t('failure_to_create_a_comment')
     end
   end
 
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     end
 
     @comment.destroy
-    redirect_to [@commentable, @comments], notice: 'Comment was successfully destroyed.'
+    redirect_to [@commentable, @comments], notice: t('comment_was_successfully_destroyed')
   end
 
   private

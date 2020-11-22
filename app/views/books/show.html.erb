@@ -28,7 +28,7 @@
 <% end %>
 <%= link_to t('links.back'), books_url %>
 
-<p class="mt-5">コメント一覧</p>
+<p class="mt-5"><strong><%=t 'comments_list' %></strong></p>
 <% unless @comments.blank? %>
   <% @comments.each do |comment| %>
       <div>
@@ -45,6 +45,6 @@
   <%= form_for [@book, @comment] do |f| %>
     <%= f.text_field :body %>
     <br>
-    <%= f.submit 'コメントする' %>
+    <%= f.submit t('comment') %>
   <% end %>
 <% end %>

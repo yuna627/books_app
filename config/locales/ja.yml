@@ -10,10 +10,17 @@ ja:
     add: 追加
     error: 保存できませんでした
     new: 日報を書く
+  comments_list: コメント一覧
+  comment: コメントする
+  comment_was_successfully_created: コメントの作成に成功しました
+  failure_to_create_a_comment: コメントの作成に失敗しました
+  comment_was_successfully_destroyed: コメントの削除に成功しました
   delite_confirmation: 本当に削除しますか？
   create_message: 保存しました
   update_message: 更新しました
   delete_message: 削除しました
+  cant_edit: 投稿者のみが修正できます
+  cant_destroy: 投稿者のみが削除できます
   logged_in_as: としてログインしています
   posted_by: 投稿者：
   show:
@@ -101,7 +108,6 @@ ja:
               blank: パスワードが入力されていません
             password_confirmation:
               confirmation: パスワードが一致しません
-              
 　errors:
     messages:
       already_confirmed: は既に登録済みです。ログインしてください。
