@@ -12,6 +12,10 @@
   <% end %>
 <% end %>
 
+<% if @user == current_user %>
+  <%= link_to t('links.edit_profile'), edit_user_registration_path %>
+<% end %>
+
 <p>
   <%= image_tag @user.avatar, size: '320x280' if @user.avatar.attached? %>
 </p>
