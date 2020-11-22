@@ -1,3 +1,17 @@
+<p><%= link_to t('show.follow')+": #{@user.followers.count}", followings_user_path(@user.id) %></p>
+<p><%= link_to t('show.follower')+": #{@user.followings.count}", followers_user_path(@user.id) %></p>
+
+<% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= button_to t('show.unfollow'), relationship_path(@relationship), method: :delete %>
+  <% else %>
+     <%= form_for(@user.followers.build) do |f| %>
+      <%= hidden_field_tag :follow_id, @user.id %>
+      <%= f.submit t('show.follow'), class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <p>
   <%= image_tag @user.avatar, size: '320x280' if @user.avatar.attached? %>
 </p>
