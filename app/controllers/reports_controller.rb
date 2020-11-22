@@ -20,7 +20,9 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit; end
+  def edit
+    redirect_to @report, notice: t('cant_edit') unless @report.user == current_user
+  end
 
   # POST /reports
   # POST /reports.json
@@ -37,6 +39,11 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
   def update
+    unless @report.user == current_user
+      redirect_to @report, notice: t('cant_edit')
+      return
+    end
+
     if @report.update(report_params)
       redirect_to @report, notice: t('update_message')
     else
@@ -47,6 +54,11 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   # DELETE /reports/1.json
   def destroy
+    unless @report.user == current_user
+      redirect_to @report, notice: t('cant_destroy')
+      return
+    end
+
     @report.destroy
     redirect_to reports_url, notice: t('delete_message')
   end

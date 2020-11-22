@@ -13,7 +13,12 @@
   <%= link_to @report.user.name, user_path(@report.user) %>
 </p>
 
-<p class="mt-5">コメント一覧</p>
+<% if @report.user == current_user %>
+  <%= link_to t('links.edit'), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t('links.back'), reports_url %>
+
+<p class="mt-5"><strong><%=t 'comments_list' %></strong></p>
 <% unless @comments.blank? %>
   <% @comments.each do |comment| %>
       <div>
@@ -30,10 +35,7 @@
   <%= form_for [@report, @comment] do |f| %>
     <%= f.text_field :body %>
     <br>
-    <%= f.submit 'コメントする' %>
+    <%= f.submit t('comment') %>
   <% end %>
 <% end %>
-
-<%= link_to t('links.edit'), edit_report_path(@report) %> |
-<%= link_to t('links.back'), reports_url %>
 
