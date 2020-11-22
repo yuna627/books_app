@@ -14,6 +14,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    unless @comment.user == current_user
+      redirect_to @comment, notice: t('cant_destroy')
+      return
+    end
+
     @comment.destroy
     redirect_to [@commentable, @comments], notice: 'Comment was successfully destroyed.'
   end
