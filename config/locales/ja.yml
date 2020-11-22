@@ -28,11 +28,13 @@ ja:
     destroy: 削除
     new_book: 新しい本を追加する
     back: もどる
-    edit_profile: プロフィール編集
+    edit_profile: プロフィールを編集する
     login: ログイン
     logout: ログアウト
     sign_up: 新規登録
-    mypage: 自分のプロフィールを見る
+    mypage: マイページ
+    books: 書籍一覧
+    reports: 日報一覧
     sign_in_with_github: GitHubアカウントでログインする
     sign_up_with_github: GitHubアカウントで登録する
   activerecord:
