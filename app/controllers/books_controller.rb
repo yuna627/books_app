@@ -27,6 +27,11 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
+    if current_user.nil?
+      redirect_to @book, notice: t('need_login_for_edit')
+      return
+    end
+
     @book.user_id = current_user.id
     if @book.save
       redirect_to @book, notice: t('create_message')

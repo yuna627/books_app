@@ -21,6 +21,7 @@ ja:
   delete_message: 削除しました
   cant_edit: 投稿者のみが修正できます
   cant_destroy: 投稿者のみが削除できます
+  need_login_for_edit: 投稿するにはログインが必要です
   logged_in_as: としてログインしています
   posted_by: 投稿者：
   show:
