@@ -19,6 +19,7 @@ ja:
   create_message: 保存しました
   update_message: 更新しました
   delete_message: 削除しました
+  cant_edit_or_destroy: 投稿者でないと編集や削除は行えません
   cant_edit: 投稿者のみが修正できます
   cant_destroy: 投稿者のみが削除できます
   need_login_for_edit: 投稿するにはログインが必要です

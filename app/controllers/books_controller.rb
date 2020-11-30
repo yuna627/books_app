@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :check_resource_owner, only: %i[update destroy edit]
 
   # GET /books
   def index
@@ -20,9 +21,7 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1/edit
-  def edit
-    redirect_to @book, notice: t('cant_edit') unless @book.user == current_user
-  end
+  def edit; end
 
   # POST /books
   def create
@@ -42,11 +41,6 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1
   def update
-    unless @book.user == current_user
-      redirect_to @book, notice: t('cant_edit')
-      return
-    end
-
     if @book.update(book_params)
       redirect_to @book, notice: t('update_message')
     else
@@ -56,11 +50,6 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
-    unless @book.user == current_user
-      redirect_to @book, notice: t('cant_destroy')
-      return
-    end
-
     @book.destroy
     redirect_to books_url, notice: t('delete_message')
   end
@@ -75,5 +64,9 @@ class BooksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:title, :memo, :author, :picture)
+  end
+
+  def check_resource_owner
+    redirect_to @book, notice: t('cant_edit_or_destroy') unless @book.user == current_user
   end
 end
