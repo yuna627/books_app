@@ -3,6 +3,7 @@
 class CommentsController < ApplicationController
   before_action :set_commentable
   before_action :set_comment, only: %i[destroy]
+  before_action :check_resource_owner, only: %i[destroy]
 
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -16,11 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    unless @comment.user == current_user
-      redirect_to @comment, notice: t('cant_destroy')
-      return
-    end
-
     @comment.destroy
     redirect_to [@commentable, @comments], notice: t('comment_was_successfully_destroyed')
   end
@@ -38,5 +34,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body)
+  end
+
+  def check_resource_owner
+    redirect_to @comment, notice: t('cant_edit_or_destroy') unless @comment.user == current_user
   end
 end

@@ -2,6 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
+  before_action :check_resource_owner, only: %i[update destroy edit]
 
   # GET /reports
   # GET /reports.json
@@ -22,9 +23,7 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit
-    redirect_to @report, notice: t('cant_edit') unless @report.user == current_user
-  end
+  def edit; end
 
   # POST /reports
   # POST /reports.json
@@ -41,11 +40,6 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
   def update
-    unless @report.user == current_user
-      redirect_to @report, notice: t('cant_edit')
-      return
-    end
-
     if @report.update(report_params)
       redirect_to @report, notice: t('update_message')
     else
@@ -56,11 +50,6 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   # DELETE /reports/1.json
   def destroy
-    unless @report.user == current_user
-      redirect_to @report, notice: t('cant_destroy')
-      return
-    end
-
     @report.destroy
     redirect_to reports_url, notice: t('delete_message')
   end
@@ -75,5 +64,9 @@ class ReportsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def report_params
     params.require(:report).permit(:title, :memo)
+  end
+
+  def check_resource_owner
+    redirect_to @report, notice: t('cant_edit_or_destroy') unless @report.user == current_user
   end
 end
