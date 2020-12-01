@@ -47,10 +47,11 @@ ActiveRecord::Schema.define(version: 2020_12_01_052918) do
     t.string "commentable_type"
     t.integer "commentable_id"
     t.string "body", null: false
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -93,4 +94,5 @@ ActiveRecord::Schema.define(version: 2020_12_01_052918) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reports", "users"
   add_foreign_key "books", "users"
+  add_foreign_key "comments", "users"
 end

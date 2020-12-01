@@ -6,6 +6,11 @@ class CommentsController < ApplicationController
   before_action :check_resource_owner, only: %i[destroy]
 
   def create
+    if current_user.nil?
+      redirect_to reports_url, notice: t('need_login_for_post')
+      return
+    end
+
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
 
