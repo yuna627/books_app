@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_052918) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "author"
     t.string "picture"
-    t.integer "user_id"
+    t.integer "user_id", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -92,4 +92,5 @@ ActiveRecord::Schema.define(version: 2020_12_01_052918) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reports", "users"
+  add_foreign_key "books", "users"
 end

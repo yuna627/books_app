@@ -12,11 +12,18 @@ class BooksController < ApplicationController
   # GET /books/1
   def show
     @comments = @book.comments.includes(:user).all
-    @comment  = @book.comments.build(user_id: current_user.id) if current_user
+    if current_user
+      @comment  = @book.comments.build(user_id: current_user.id)
+    end
   end
 
   # GET /books/new
   def new
+    if current_user.nil?
+      redirect_to books_url, notice: t('need_login_for_post')
+      return
+    end
+
     @book = Book.new
   end
 
@@ -27,7 +34,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if current_user.nil?
-      redirect_to @book, notice: t('need_login_for_edit')
+      redirect_to @book, notice: t('need_login_for_post')
       return
     end
 

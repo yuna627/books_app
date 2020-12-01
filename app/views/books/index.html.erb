@@ -1,5 +1,7 @@
 <h1><%=t 'index_page_title' %></h1>
-<%= link_to t('links.new_book'), new_book_path %>
+<% if current_user %>
+  <%= link_to t('links.new_book'), new_book_path %>
+<% end %>
 <table>
   <thead>
     <tr>
