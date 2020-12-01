@@ -3,6 +3,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
   before_action :check_resource_owner, only: %i[update destroy edit]
+  before_action :authenticate_user!, only:%i[new create]
 
   # GET /reports
   # GET /reports.json
@@ -19,11 +20,6 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
-    if current_user.nil?
-      redirect_to reports_url, notice: t('need_login_for_post')
-      return
-    end
-
     @report = Report.new
   end
 

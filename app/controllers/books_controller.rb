@@ -3,6 +3,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
   before_action :check_resource_owner, only: %i[update destroy edit]
+  before_action :authenticate_user!, only:%i[new create]
 
   # GET /books
   def index
@@ -19,11 +20,6 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    if current_user.nil?
-      redirect_to books_url, notice: t('need_login_for_post')
-      return
-    end
-
     @book = Book.new
   end
 
@@ -33,11 +29,6 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
-    if current_user.nil?
-      redirect_to @book, notice: t('need_login_for_post')
-      return
-    end
-
     @book.user_id = current_user.id
     if @book.save
       redirect_to @book, notice: t('create_message')
