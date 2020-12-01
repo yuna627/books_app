@@ -22,7 +22,7 @@ ja:
   cant_edit_or_destroy: 投稿者でないと編集や削除は行えません
   cant_edit: 投稿者のみが修正できます
   cant_destroy: 投稿者のみが削除できます
-  need_login_for_edit: 投稿するにはログインが必要です
+  need_login_for_post: 投稿するにはログインが必要です
   logged_in_as: としてログインしています
   posted_by: 投稿者：
   show:
@@ -99,6 +99,8 @@ ja:
           attributes:
             title:
               blank: が入力されていません
+            user:
+              required: ログインしてください
         user:
           attributes:
             name:
