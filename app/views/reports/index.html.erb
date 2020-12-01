@@ -1,5 +1,7 @@
 <h1><%=t 'report.index_title' %></h1>
-<%= link_to t('report.new'), new_report_path %>
+<% unless current_user.nil? %>
+  <%= link_to t('report.new'), new_report_path %>
+<% end %>
 <table>
   <thead>
     <tr>

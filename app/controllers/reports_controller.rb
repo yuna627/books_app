@@ -19,6 +19,11 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
+    if current_user.nil?
+      redirect_to reports_url, notice: t('need_login_for_post')
+      return
+    end
+
     @report = Report.new
   end
 
@@ -29,7 +34,7 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
-    @report.user_id = current_user.id
+    @report.user_id = current_user.id unless current_user.nil?
     if @report.save
       redirect_to @report, notice: t('create_message')
     else
