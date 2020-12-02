@@ -1,8 +1,8 @@
 <p><%= link_to t('show.follow')+": #{@user.followers.count}", followings_user_path(@user.id) %></p>
 <p><%= link_to t('show.follower')+": #{@user.followings.count}", followers_user_path(@user.id) %></p>
 
-<% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
+<% if current_user && @user != current_user %>
+  <% if current_user.following?(@user)  %>
     <%= button_to t('show.unfollow'), relationship_path(@relationship), method: :delete %>
   <% else %>
      <%= form_for(@user.followers.build) do |f| %>
