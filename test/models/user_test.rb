@@ -31,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal(36, uuid1.length, 'Length should be 36')
     assert_equal(36, uuid2.length, 'Length should be 36')
-    assert_not_equal(uuid1, uuid2, 'Should be false because they must be unique')
+    assert_not_equal(uuid1, uuid2, 'Should be true because they must be unique')
   end
 
   test '.find_for_github_oauth' do
@@ -48,7 +48,7 @@ class UserTest < ActiveSupport::TestCase
                                            })
 
     returned_user = User.find_for_github_oauth(existing_auth)
-    assert_equal(github_user, returned_user, 'Shold return existing user')
+    assert_equal(github_user, returned_user, 'Should return existing user')
 
     new_auth = OmniAuth::AuthHash.new({
                                         'provider' => 'github',
