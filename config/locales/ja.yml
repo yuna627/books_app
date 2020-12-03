@@ -30,6 +30,8 @@ ja:
   show:
     follow: フォロー
     follower: フォロワー
+    followings: フォローリスト
+    followers: フォロワーリスト
     unfollow: アンフォロー
   follow:
     profile: プロフィールを見る

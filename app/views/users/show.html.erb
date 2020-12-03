@@ -19,23 +19,23 @@
 <p>
   <%= image_tag @user.avatar, size: '320x280' if @user.avatar.attached? %>
 </p>
-<p>
+<p class="name">
   <strong><th><%=User.human_attribute_name(:name) %>:</th></strong>
   <%= @user.name %>
 </p>
-<p>
+<p class="zipcode">
   <strong><th><%=User.human_attribute_name(:zipcode) %>:</th></strong>
   <%= @user.zipcode %>
 </p>
-<p>
+<p class="address">
   <strong><th><%=User.human_attribute_name(:address) %>:</th></strong>
   <%= @user.address %>
 </p>
-<p>
+<p class="introduction">
   <strong><th><%=User.human_attribute_name(:introduction) %>:</th></strong>
   <%= @user.introduction %>
 </p>
-<p>
+<p class="email">
   <strong><th><%=User.human_attribute_name(:email) %>:</th></strong>
   <%= @user.email %>
 </p>

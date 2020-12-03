@@ -1,0 +1,12 @@
+alice:
+  name: Alice
+  email: alice@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  uid: <%= User.create_unique_string %>
+  provider: github
+
+bob:
+  name: Bob
+  email: bob@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  uid: <%= User.create_unique_string %>
