@@ -2,6 +2,8 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :check_resource_owner, only: %i[update destroy edit]
+  before_action :authenticate_user!, only:%i[new create]
 
   # GET /books
   def index
@@ -9,7 +11,12 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1
-  def show; end
+  def show
+    @comments = @book.comments.includes(:user).all
+    if current_user
+      @comment  = @book.comments.build(user_id: current_user.id)
+    end
+  end
 
   # GET /books/new
   def new
@@ -55,5 +62,9 @@ class BooksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:title, :memo, :author, :picture)
+  end
+
+  def check_resource_owner
+    redirect_to @book, notice: t('cant_edit_or_destroy') unless @book.user == current_user
   end
 end

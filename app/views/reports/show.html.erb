@@ -1,0 +1,41 @@
+<p>
+  <strong><th><%=Report.human_attribute_name(:title) %>:</th></strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><th><%=Report.human_attribute_name(:memo) %>:</th></strong>
+  <%= @report.memo %>
+</p>
+
+<p>
+  <strong><%= t("posted_by") %></strong>
+  <%= link_to @report.user.name, user_path(@report.user) %>
+</p>
+
+<% if @report.user == current_user %>
+  <%= link_to t('links.edit'), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t('links.back'), reports_url %>
+
+<p class="mt-5"><strong><%=t 'comments_list' %></strong></p>
+<% unless @comments.blank? %>
+  <% @comments.each do |comment| %>
+      <div>
+        <strong><%= comment.user.name %></strong>
+        <br />
+        <p><%= comment.body %></p>
+        <% if user_signed_in? && comment.user == current_user %>
+          <p><%= link_to t('links.destroy'), [@report, comment], method: :delete, data: { confirm: t('delite_confirmation') } %></p>
+        <% end %>
+      </div>
+  <% end %>
+<% end %>
+<% if user_signed_in? %>
+  <%= form_for [@report, @comment] do |f| %>
+    <%= f.text_field :body %>
+    <br>
+    <%= f.submit t('comment') %>
+  <% end %>
+<% end %>
+

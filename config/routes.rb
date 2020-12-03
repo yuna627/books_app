@@ -11,8 +11,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :reports do
+    resources :comments, only: %i[destroy create]
+  end
+
+  resources :books do
+    resources :comments, only: %i[destroy create]
+  end
+
   resources :relationships, only: %i[create destroy]
   resources :users, only: :show
-  resources :books
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

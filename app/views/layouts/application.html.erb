@@ -14,12 +14,15 @@
     <p class="navbar-text pull-right">
       <% if user_signed_in? %>
         <strong><%= current_user.name %></strong> <%=t 'logged_in_as' %>。
+        <%= link_to t('links.books'), books_path, class: 'navbar-link' %>  |
+        <%= link_to t('links.reports'), reports_path, class: 'navbar-link' %>  |
         <%= link_to t('links.mypage'), user_path(current_user.id), class: 'navbar-link' %> |
-        <%= link_to t('links.edit_profile'), edit_user_registration_path, class: 'navbar-link' %> |
         <%= link_to t('links.logout'), destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
       <% else %>
         <%= link_to t('links.sign_up'), new_user_registration_path, class: 'navbar-link'  %> |
-        <%= link_to t('links.login'), new_user_session_path, class: 'navbar-link'  %>
+        <%= link_to t('links.login'), new_user_session_path, class: 'navbar-link'  %>  |
+        <%= link_to t('links.books'), books_path, class: 'navbar-link' %>  |
+        <%= link_to t('links.reports'), reports_path, class: 'navbar-link' %> |
       <% end %>
     </p>
 
