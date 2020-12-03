@@ -11,6 +11,7 @@ ja:
     add: 追加
     error: 保存できませんでした
     new: 日報を書く
+    deatail: 日報の詳細
   comments_list: コメント一覧
   comment: コメントする
   comment_was_successfully_created: コメントの作成に成功しました

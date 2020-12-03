@@ -1,0 +1,6 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+eating_report:
+  title: 今日食べたもの
+  memo: 鍋
+  user: alice
