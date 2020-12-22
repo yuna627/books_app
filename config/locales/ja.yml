@@ -4,12 +4,14 @@ ja:
   add_book: 追加
   add_report: 追加
   edit_book_title: 本の情報を編集
+  book_detail: 本の詳細
   report:
     index_title: 日報一覧
     title: 日報を編集する
     add: 追加
     error: 保存できませんでした
     new: 日報を書く
+    deatail: 日報の詳細
   comments_list: コメント一覧
   comment: コメントする
   comment_was_successfully_created: コメントの作成に成功しました
@@ -28,6 +30,8 @@ ja:
   show:
     follow: フォロー
     follower: フォロワー
+    followings: フォローリスト
+    followers: フォロワーリスト
     unfollow: アンフォロー
   follow:
     profile: プロフィールを見る

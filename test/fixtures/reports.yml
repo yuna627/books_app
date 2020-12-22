@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-abc_book:
-  title: 英語の本
-  memo: 学べるよ
+eating_report:
+  title: 今日食べたもの
+  memo: 鍋
   user: alice

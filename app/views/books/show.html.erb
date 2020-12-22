@@ -1,16 +1,17 @@
+<h1><%= t('book_detail') %></h1>
 <p>
   <strong><th><%=Book.human_attribute_name(:title) %>:</th></strong>
-  <%= @book.title %>
+    <p id="book-title"><%= @book.title %></p>
 </p>
 
 <p>
   <strong><th><%=Book.human_attribute_name(:memo) %>:</th></strong>
-  <%= @book.memo %>
+  <p id="book-memo"><%= @book.memo %></p>
 </p>
 
 <p>
   <strong><th><%=Book.human_attribute_name(:author) %>:</th></strong>
-  <%= @book.author %>
+  <p id="book-author"><%= @book.author %></p>
 </p>
 
 <p>
@@ -34,7 +35,7 @@
       <div>
         <strong><%= comment.user.name %></strong>
         <br />
-        <p><%= comment.body %></p>
+        <p class="comment-body"><%= comment.body %></p>
         <% if user_signed_in? && comment.user == current_user %>
           <p><%= link_to t('links.destroy'), [@book, comment], method: :delete, data: { confirm: t('delite_confirmation') } %></p>
         <% end %>
